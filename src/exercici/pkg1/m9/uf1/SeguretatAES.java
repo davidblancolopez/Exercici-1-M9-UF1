@@ -86,7 +86,7 @@ public class SeguretatAES {
      * @param clave
      * @param fitxerDesencriptat
      */
-    public void desxifrarFitxer(String fitxerEncriptat, SecretKey clave, String fitxerDesencriptat) throws FileNotFoundException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+    public void desxifrarFitxer(String fitxerEncriptat, SecretKey clave, String fitxerDesencriptat) throws FileNotFoundException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException {
         //Creamos el FileInputStream
         FileInputStream fis = new FileInputStream(fitxerEncriptat);
         
@@ -94,7 +94,17 @@ public class SeguretatAES {
         Cipher descifrador = Cipher.getInstance("AES");
         descifrador.init(Cipher.DECRYPT_MODE, clave);
         
+        //Creamos un buffer que es un array de bytes donde almacenaremos el texto.
+        byte[] buffer = new byte[1000];
         
+        //Utilizamos un bucle para ir leyendo el archivo de texto Encriptado que le hemos pasado.
+        while(fis.read(buffer, 0, buffer.length)!=-1){
+            descifrador.update(buffer, 0, buffer.length);
+        }
+        
+        //Creamos el FileOutputStream para escribir en el fichero.
+        FileOutputStream fos = new FileOutputStream("mensajeCifrado.txt");
+        fos.write(descifrador.doFinal());
         
     }
 
