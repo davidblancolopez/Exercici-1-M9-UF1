@@ -62,16 +62,16 @@ public class SeguretatAES {
     public void xifrarFitxer(String fitxer, SecretKey clau) throws FileNotFoundException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IOException, IllegalBlockSizeException, BadPaddingException {
         FileInputStream fis = new FileInputStream(fitxer);
         
-        Cipher ciph = Cipher.getInstance("AES");
-        ciph.init(Cipher.ENCRYPT_MODE, clau);
+        Cipher cifrador = Cipher.getInstance("AES");
+        cifrador.init(Cipher.ENCRYPT_MODE, clau);
         
         
         byte[] buffer = new byte[1000];
         while(fis.read(buffer, 0, buffer.length)!=-1){
-            ciph.update(buffer, 0, buffer.length);
+            cifrador.update(buffer, 0, buffer.length);
         }
         FileOutputStream fos = new FileOutputStream("mensajeCifrado.txt");
-        fos.write(ciph.doFinal());
+        fos.write(cifrador.doFinal());
     }
 
     /**
