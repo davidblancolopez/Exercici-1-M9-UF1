@@ -40,7 +40,6 @@ public class SeguretatAES {
 
         if ((tamany == 128) || (tamany == 192) || (tamany == 256)) {
             try {
-                //Es pasa la contrasenya a un array de bytes.
                 byte[] data = contrasenya.getBytes("UTF-8");
                 MessageDigest md = MessageDigest.getInstance("SHA-256");
                 byte[] hash = md.digest(data);
@@ -65,11 +64,15 @@ public class SeguretatAES {
         Cipher cifrador = Cipher.getInstance("AES");
         cifrador.init(Cipher.ENCRYPT_MODE, clau);
         
-        
+        //Creamos un buffer que es un array de bytes donde almacenaremos el texto.
         byte[] buffer = new byte[1000];
+        
+        //Utilizamos un bucle para ir leyendo el archivo de texto que le hemos pasado.
         while(fis.read(buffer, 0, buffer.length)!=-1){
             cifrador.update(buffer, 0, buffer.length);
         }
+        
+        //Creamos el FileOutputStream para escribir en el fichero.
         FileOutputStream fos = new FileOutputStream("mensajeCifrado.txt");
         fos.write(cifrador.doFinal());
     }
