@@ -103,7 +103,7 @@ public class SeguretatAES {
         }
         
         //Creamos el FileOutputStream para escribir en el fichero.
-        FileOutputStream fos = new FileOutputStream("mensajeCifrado.txt");
+        FileOutputStream fos = new FileOutputStream("mensajeDescifrado.txt");
         fos.write(descifrador.doFinal());
         
     }
