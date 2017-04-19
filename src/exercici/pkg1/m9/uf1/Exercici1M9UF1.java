@@ -21,6 +21,8 @@ public class Exercici1M9UF1 {
 
         SeguretatAES sae = new SeguretatAES(keySize);
         
+        sae.generarClau(key, keySize)
+        
         sae.xifrarFitxer("texto.txt", key);
         /*
         Seguretat sg = new Seguretat(keySize);
