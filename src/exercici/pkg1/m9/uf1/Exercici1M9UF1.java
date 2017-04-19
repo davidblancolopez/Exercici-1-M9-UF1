@@ -19,6 +19,10 @@ public class Exercici1M9UF1 {
         Scanner sc = new Scanner(System.in);
         key = sc.next();
 
+        SeguretatAES sae = new SeguretatAES(keySize);
+        
+        sae.xifrarFitxer("texto.txt", key);
+        /*
         Seguretat sg = new Seguretat(keySize);
 
         SecretKey sk = sg.keygenKeyGeneration(keySize);
@@ -32,6 +36,6 @@ public class Exercici1M9UF1 {
         System.out.println(sk2.getAlgorithm());
         System.out.println(Arrays.toString(sk2.getEncoded()));
         System.out.println(Arrays.toString(sk2.getEncoded()).length());
-
+        */
     }
 }
