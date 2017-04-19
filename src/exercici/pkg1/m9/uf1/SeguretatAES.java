@@ -59,8 +59,10 @@ public class SeguretatAES {
      * @param clau
      */
     public void xifrarFitxer(String fitxer, SecretKey clau) throws FileNotFoundException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IOException, IllegalBlockSizeException, BadPaddingException {
+        //Creamos el FileInput Stream para leer el archivo.
         FileInputStream fis = new FileInputStream(fitxer);
         
+        //Creamos un cifrador para cifrar el texto.
         Cipher cifrador = Cipher.getInstance("AES");
         cifrador.init(Cipher.ENCRYPT_MODE, clau);
         
@@ -84,8 +86,16 @@ public class SeguretatAES {
      * @param clave
      * @param fitxerDesencriptat
      */
-    public void desxifrarFitxer(String fitxerEncriptat, SecretKey clave, String fitxerDesencriptat) {
-
+    public void desxifrarFitxer(String fitxerEncriptat, SecretKey clave, String fitxerDesencriptat) throws FileNotFoundException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+        //Creamos el FileInputStream
+        FileInputStream fis = new FileInputStream(fitxerEncriptat);
+        
+        //Creamos un descifrador para descifrar el texto del fichero Encriptado.
+        Cipher descifrador = Cipher.getInstance("AES");
+        descifrador.init(Cipher.DECRYPT_MODE, clave);
+        
+        
+        
     }
 
 }
