@@ -33,7 +33,7 @@ public class Exercici1M9UF1 {
         
         sae.xifrarFitxer("texto.txt", clau);
         
-        sae.desxifrarFitxer("mensajeCifrado.txt", clau, key);
+        sae.desxifrarFitxer("mensajeCifrado.txt", clau, "mensajeDescifrado.txt");
         /*
         Seguretat sg = new Seguretat(keySize);
 
