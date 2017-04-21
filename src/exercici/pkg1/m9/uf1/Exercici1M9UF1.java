@@ -34,20 +34,6 @@ public class Exercici1M9UF1 {
         sae.xifrarFitxer("texto.txt", clau);
         
         sae.desxifrarFitxer("mensajeCifrado.txt", clau, "mensajeDescifrado.txt");
-        /*
-        Seguretat sg = new Seguretat(keySize);
-
-        SecretKey sk = sg.keygenKeyGeneration(keySize);
-        System.out.println(sk.getAlgorithm());
-        System.out.println(Arrays.toString(sk.getEncoded()));
-        System.out.println(Arrays.toString(sk.getEncoded()).length());
-
-        System.out.println("****************************************");
-
-        SecretKey sk2 = sg.passwordKeyGeneration(key, keySize);
-        System.out.println(sk2.getAlgorithm());
-        System.out.println(Arrays.toString(sk2.getEncoded()));
-        System.out.println(Arrays.toString(sk2.getEncoded()).length());
-        */
+      
     }
 }

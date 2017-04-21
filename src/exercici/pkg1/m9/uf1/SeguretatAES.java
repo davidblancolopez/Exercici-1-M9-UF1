@@ -78,7 +78,7 @@ public class SeguretatAES {
             cifrador.update(buffer, 0, bytes);
         }
         
-
+        //Escribimos el archivo cifrado.
         fos.write(cifrador.doFinal());
     }
 
@@ -108,6 +108,7 @@ public class SeguretatAES {
             descifrador.update(buffer, 0, bytes);
         }
 
+        //Escribimos el archivo desencriptado.
         fos.write(descifrador.doFinal());
         
     }
